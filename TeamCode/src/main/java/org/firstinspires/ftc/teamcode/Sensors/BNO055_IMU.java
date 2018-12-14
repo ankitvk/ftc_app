@@ -55,6 +55,7 @@ public class BNO055_IMU /*implements Runnable*/ {
 
     public double getRelativeYaw() {
         updateRelativeYaw();
+        int x;
         return relativeYaw;
     }
 
