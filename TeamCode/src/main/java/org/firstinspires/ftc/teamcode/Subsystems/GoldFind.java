@@ -40,6 +40,7 @@ public class GoldFind extends DogeCVDetector implements Constants {
     public Hardware hardware;
     private Telemetry telemetry;
     private Drivetrain drivetrain;
+    private HardwareMap hardwareMap;
 
     // Defining Mats to be used.
     private Mat displayMat = new Mat(); // Display debug info to the screen (this is what is returned)
@@ -74,6 +75,7 @@ public class GoldFind extends DogeCVDetector implements Constants {
         detectorName = "GoldFinder"; // Set the detector name
         this.auto = auto;
         this.hardware = hardware;
+        this.hardwareMap = hardware.getHwMap();
         telemetry = hardware.telemetry;
         drivetrain = new Drivetrain(hardware);
     }
@@ -223,7 +225,7 @@ public class GoldFind extends DogeCVDetector implements Constants {
         return found;
     }
 
-    public void startOpenCV (HardwareMap hardwareMap) {
+    public void startOpenCV () {
         /*init(hardwareMap.appContext, CameraViewDisplay.getInstance());
         useDefaults();
         // Optional Tuning
@@ -296,12 +298,12 @@ public class GoldFind extends DogeCVDetector implements Constants {
 
 
     public void alignGold(){
-        PIDController getTheGold = new PIDController(.001,0,0,1);
+        PIDController getTheGold = new PIDController(.00215,0.00001,0,1);
         long startTime = System.nanoTime();
         long beginTime = startTime;
         long stopState = 0;
         while(opModeIsActive() && (stopState <= 1000)){
-            double power = getTheGold.power(315,getXPosition());
+            double power = getTheGold.power(TARGET_GOLD_X_POS,getXPosition());
             telemetry.addLine("PIDAlign");
             telemetry.addData("Stopstate: ", stopState);
             telemetry.addData("Aligned:",getAligned());
@@ -318,15 +320,15 @@ public class GoldFind extends DogeCVDetector implements Constants {
             hardware.frontRight.setPower(-power);
             hardware.backRight.setPower(-power);
 
-            if (Math.abs(315-getXPosition()) <= 25) {
+            if (Math.abs(TARGET_GOLD_X_POS-getXPosition()) <= 50) {
                 stopState = (System.nanoTime() - startTime) / 1000000;
             }
             else {
                 startTime = System.nanoTime();
             }
-            /*if(System.nanoTime()/1000000-beginTime/1000000>2000){
+            if(System.nanoTime()/1000000-beginTime/1000000>5000){
                 break;
-            }*/
+            }
         }
         drivetrain.stop();
     }

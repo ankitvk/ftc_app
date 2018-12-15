@@ -24,57 +24,23 @@ public class Intake implements Constants {
 
     public void intake(Gamepad gamepad){
         if(gamepad.a){
-            hardware.intake.setPower(-.5);
+            hardware.intake.setPower(-.75);
         }
         else if(gamepad.b){
-            hardware.intake.setPower(.5);
+            hardware.intake.setPower(.75);
         }
         else{
             hardware.intake.setPower(0);
         }
-
-        /*if (gamepad.a) {
-            forwardCurrState = true;
-        }
-        else {
-            forwardCurrState = false;
-            if (forwardPreviousState) {
-                spinningForward = !spinningForward;
-            }
-        }
-        forwardPreviousState = forwardCurrState;
-
-        if (gamepad.b){
-            backwardCurrState = true;
-        }
-        else {
-            backwardCurrState = false;
-            if (backwardPreviousState) {
-                spinningBackward = !spinningBackward;
-            }
-        }
-        backwardPreviousState = backwardCurrState;
-
-        if(spinningForward){
-            hardware.intake.setPower(.5);
-        }
-        else if(spinningBackward){
-            hardware.intake.setPower(-.5);
-        }
-        else{
-            hardware.intake.setPower(0);
-        }*/
 
     }
 
-
-
     public void index(Gamepad gamepad){
-        if(gamepad.x){
-            hardware.index.setPosition(.75);
-        }
-        else if(gamepad.y){
+        if(gamepad.y){
             hardware.index.setPosition(.35);
+        }
+        else{
+            hardware.index.setPosition(.75);
         }
     }
 }

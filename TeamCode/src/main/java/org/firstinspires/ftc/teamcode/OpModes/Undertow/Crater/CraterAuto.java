@@ -39,7 +39,7 @@ public class CraterAuto extends LinearOpMode implements AutonomousOpMode,Constan
 
         waitForStart();
 
-        goldfish.startOpenCV(hardwareMap); //start opencv
+        goldfish.startOpenCV(); //start opencv
 
         /*robot.marker.setPosition(.9);
 

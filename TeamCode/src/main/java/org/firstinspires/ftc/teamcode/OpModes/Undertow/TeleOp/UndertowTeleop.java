@@ -26,7 +26,7 @@ public class UndertowTeleop extends OpMode implements Constants{
         goldfish = new GoldFind(robot);
         goldfish.setAlignSettings(ALIGN_POSITION, 1000);
 
-        goldfish.startOpenCV(hardwareMap); //start opencv
+        goldfish.startOpenCV(); //start opencv
 
         //robot.marker.setPosition(.5);
     }

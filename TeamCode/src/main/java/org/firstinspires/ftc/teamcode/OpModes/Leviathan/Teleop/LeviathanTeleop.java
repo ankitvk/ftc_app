@@ -27,38 +27,24 @@ public class LeviathanTeleop extends OpMode implements Constants{
 
     public void init(){
         robot.init(hardwareMap);
-        robot.hookRelease.setPosition(1);
+        robot.hookRelease.setPosition(0);
         //robot.led.setPosition(-.41);
         robot.hookSwivel.setPosition(.75);
 
     }
     public void loop(){
-        if(resetimu){
-            robot.imu.reset();
-            resetimu = !resetimu;
 
-        }
         drivetrain.drive(gamepad1);
-        pivot.driverControl(gamepad1);
-        extendo.driverControl(gamepad1);
-        intake.intake(gamepad1);
-        intake.index(gamepad1);
-        endgame.hookRelease(gamepad2);
-        endgame.hookSwivel(gamepad2);
-        endgame.winch(gamepad2);
+        pivot.driverControl(gamepad2);
+        extendo.driverControl(gamepad2);
+        intake.intake(gamepad2);
+        intake.index(gamepad2);
+        endgame.hookRelease(gamepad1);
+        endgame.hookSwivel(gamepad1);
+        endgame.winch(gamepad1);
+        endgame.drop(gamepad1);
 
-        if(gamepad2.x){
-            robot.drop.setPosition(0);
-        }
-        else if(gamepad2.y){
-            robot.drop.setPosition(1);
-        }
-        /*telemetry.addData("index: ",robot.index.getPosition());
-        telemetry.addData("intake: ",robot.intake.getPower());*/
-        telemetry.addData("Yaw: ",robot.imu.getAngles()[0]);
-        telemetry.addData("Pitch: ",robot.imu.getPitch());
-        telemetry.addData("Roll: ",robot.imu.getRoll());
-
+        telemetry.addData("Angle: ",robot.imu.getRelativeYaw());
         telemetry.update();
 
     }

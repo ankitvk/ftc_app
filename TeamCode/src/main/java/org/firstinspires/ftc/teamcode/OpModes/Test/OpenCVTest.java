@@ -28,14 +28,15 @@ public class OpenCVTest extends LinearOpMode implements AutonomousOpMode,Constan
 
         robot.setAuto(this, telemetry);
 
+        robot.init(hardwareMap);
+
         GoldFind goldfish = new GoldFind(this, robot);
         goldfish.setAlignSettings(ALIGN_POSITION, 1000);
-        robot.init(hardwareMap);
         //start opencv
 
         waitForStart();
 
-        goldfish.startOpenCV(hardwareMap);
+        goldfish.startOpenCV();
 
         while(getOpModeIsActive()){
             telemetry.addData("Found: ",goldfish.isFound());

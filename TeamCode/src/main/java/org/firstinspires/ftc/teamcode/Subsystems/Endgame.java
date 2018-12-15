@@ -17,28 +17,20 @@ public class Endgame implements Constants {
 
      public void hookSwivel(Gamepad gamepad){
 
-         if(gamepad.a){
-             if(hardware.hookSwivel.getPosition()==.25){
-                 hardware.hookSwivel.setPosition(.5);
-             }
-             else if(hardware.hookSwivel.getPosition()==.5){
-                 hardware.hookSwivel.setPosition(.75);
-             }
-             else{
-                 hardware.hookSwivel.setPosition(.25);
-             }
+         if(gamepad.right_bumper){
+             hardware.hookSwivel.setPosition(.75);
+         }
+         else if(gamepad.left_bumper){
+             hardware.hookSwivel.setPosition(.45);
          }
      }
 
      public void hookRelease (Gamepad gamepad){
-         if (gamepad.left_bumper && gamepad.right_bumper){
-             double hookReleaseStatus = hardware.hookRelease.getPosition();
-             if(hookReleaseStatus>.5){
-                 hardware.hookRelease.setPosition(0);
-             }
-             else{
-                 hardware.hookRelease.setPosition(1);
-             }
+         if (gamepad.y){
+             hardware.hookRelease.setPosition(1);
+         }
+         else if (gamepad.x){
+             hardware.hookRelease.setPosition(0);
          }
      }
 
@@ -46,11 +38,20 @@ public class Endgame implements Constants {
          if (gamepad.right_trigger>.75){
              hardware.winch.setPower(1);
          }
-         else if(gamepad.left_trigger >.75){
+         else if(gamepad.left_trigger>.75){
              hardware.winch.setPower(-1);
          }
          else{
              hardware.winch.setPower(0);
+         }
+     }
+
+     public void drop (Gamepad gamepad){
+         if (gamepad.dpad_down){
+             hardware.drop.setPosition(0);
+         }
+         else{
+             hardware.drop.setPosition(1);
          }
      }
 }

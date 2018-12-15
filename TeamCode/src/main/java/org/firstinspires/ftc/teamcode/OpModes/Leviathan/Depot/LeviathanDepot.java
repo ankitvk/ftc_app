@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.OpModes.Leviathan.Crater;
+package org.firstinspires.ftc.teamcode.OpModes.Leviathan.Depot;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
@@ -13,8 +13,8 @@ import org.firstinspires.ftc.teamcode.Subsystems.Extendo;
 import org.firstinspires.ftc.teamcode.Subsystems.GoldFind;
 import org.firstinspires.ftc.teamcode.Subsystems.Pivot;
 
-@Autonomous(name = "LeviathanCrater",group = "Crater")
-public class LeviathanCrater extends LinearOpMode implements AutonomousOpMode,Constants {
+@Autonomous(name = "LeviathanDepot",group = "Depot")
+public class LeviathanDepot extends LinearOpMode implements AutonomousOpMode,Constants {
     Hardware robot = new Hardware();
     private GoldFind goldfish;
 
@@ -64,9 +64,16 @@ public class LeviathanCrater extends LinearOpMode implements AutonomousOpMode,Co
 
         goldfish.disable();
 
-        robot.drive.driveForwardDistance(40);
+        robot.drive.driveForwardDistance(30);
 
-        robot.drive.stop();
+        robot.drive.rotateToAbsoluteAngle(-robot.imu.getRelativeYaw());
+
+        robot.intake.setPower(-1);
+
+        sleep(3000);
+
+        robot.intake.setPower(0);
+
     }
 
 }

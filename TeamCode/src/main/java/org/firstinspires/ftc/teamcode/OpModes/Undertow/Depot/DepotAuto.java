@@ -39,7 +39,7 @@ public class DepotAuto extends LinearOpMode implements AutonomousOpMode,Constant
 
         waitForStart();
 
-        goldfish.startOpenCV(hardwareMap); //start opencv
+        goldfish.startOpenCV(); //start opencv
 
         drivetrain.rotateForTime(-.5, 600);
         drivetrain.stop();

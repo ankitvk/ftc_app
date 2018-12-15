@@ -39,7 +39,7 @@ public class DepotAutoSingleSample extends LinearOpMode implements AutonomousOpM
 
         waitForStart();
 
-        goldfish.startOpenCV(hardwareMap); //start opencv
+        goldfish.startOpenCV(); //start opencv
 
         /*robot.marker.setPosition(.9);
 

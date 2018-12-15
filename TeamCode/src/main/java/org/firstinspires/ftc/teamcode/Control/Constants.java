@@ -14,29 +14,34 @@ public interface Constants {
 
     double E4T_COUNTS_PER_REV = 537.6;
     int PATH_FOLLOWING_INTERVAL = 50;
-    double SPEED_MULTIPLIER = .75;
+    double SPEED_MULTIPLIER = 1;
 
     double LENGTH_BETWEEN_WHEELS = 15.789;
     double WHEEL_DIAMETER  =4;
 
     double DISTANCE_TOLERANCE = .5;
-    double IMU_TOLERANCE = .5;
+    double IMU_TOLERANCE = .2;
 
     double LOOKAHEAD = 18;
 
-    int ALIGN_POSITION = -75;
+    int ALIGN_POSITION = 0;
+
+    int TARGET_GOLD_X_POS = 425;
+
+    double MIN_ROTATE_POWER = 0.39;
+    double MIN_DRIVE_POWER = 0;
 
     double dtKP = .00045;
     double dtKI = .025;
     double dtKD = 0;
     double dtMaxI = 1;
 
-    double dtRotateKP = 0.025;
-    double dtRotateKI = 0.00001;
+    double dtRotateKP = 0.0095;
+    double dtRotateKI = 0.00000;
     double dtRotateKD = 0;
     double dtRotateMaxI = 1;
 
-    double dtBigRotateKP = 0.001;
+    double dtBigRotateKP = 0.015;
     double dtBigRotateKI = 0;
     double dtBigRotateKD = 0;
     double dtBigRotateMaxI = 1;

@@ -12,6 +12,8 @@ import org.firstinspires.ftc.teamcode.Control.SpeedControlledMotor;
 import org.firstinspires.ftc.teamcode.Sensors.AltIMU;
 import org.firstinspires.ftc.teamcode.Sensors.BNO055_IMU;
 import org.firstinspires.ftc.teamcode.Subsystems.Drivetrain;
+import org.firstinspires.ftc.teamcode.Subsystems.Extendo;
+import org.firstinspires.ftc.teamcode.Subsystems.Pivot;
 
 public class Hardware implements Constants {
 
@@ -47,6 +49,9 @@ public class Hardware implements Constants {
 
 
     public Drivetrain drive;
+    private Pivot pivot ;
+    private Extendo extendoo;
+    //private Intake intake;
 
     public void init(HardwareMap hardwareMap){
 
@@ -78,6 +83,9 @@ public class Hardware implements Constants {
         intake = hardwareMap.crservo.get("intake");
 
         drive = new Drivetrain(this);
+        pivot = new Pivot(this);
+        extendoo = new Extendo(this);
+        //private Intake intake =  new Intake(robot);
     }
 
     public void setAuto (AutonomousOpMode auto, Telemetry telemetry) {
