@@ -20,7 +20,7 @@ public interface Constants {
     double WHEEL_DIAMETER  =4;
 
     double DISTANCE_TOLERANCE = .5;
-    double IMU_TOLERANCE = .2;
+    double IMU_TOLERANCE = .5;
 
     double LOOKAHEAD = 18;
 
@@ -36,7 +36,7 @@ public interface Constants {
     double dtKD = 0;
     double dtMaxI = 1;
 
-    double dtRotateKP = 0.0095;
+    double dtRotateKP = 0.009;
     double dtRotateKI = 0.00000;
     double dtRotateKD = 0;
     double dtRotateMaxI = 1;
@@ -56,7 +56,12 @@ public interface Constants {
     double pivotKD = 0;
     double pivotMaxI = 1;
 
-    String LICENSE_KEY = "AbxcZxf/////AAABmYehhkt9/k+lgWzWDZFG64eH2XR0TK1U2WbaJWSXrIBuB4xBU9FpE1oHH3WHomRfTKwInQH9f18rQNXlH0LoYQmYHUR30N47eierR8KeOCKWOz/ew5qYXDq5W4hy20SDt6/GrORnhVttBPrp1lu+RllaRANDz4PKdioMn8uobSLb4MC9z77cXv+BCxSQGsswhgaVNYh/3GoBLrYYEYDpgGGFRLEJtrmf8pYbd3s+KKatCS5xEaEoILRYWQZMt5kENV2CyoaSznfg+zmRNeNpVpFBLWMlaVoT19fBzj2IZZx209ztGb+MLCRkHwy2b0cTDc1DfBm/RfzcJsAm8ym9sAPTmlbi6UlWB/dJr9s48kwM";
+    String LICENSE_KEY = "AbxcZxf/////AAABmYehhkt9/k+lgWzWDZFG64eH2XR0TK1U2WbaJWSXrI" +
+            "BuB4xBU9FpE1oHH3WHomRfTKwInQH9f18rQNXlH0LoYQmYHUR30N4" +
+            "7eierR8KeOCKWOz/ew5qYXDq5W4hy20SDt6/GrORnhVttBPrp1lu+RllaRA" +
+            "NDz4PKdioMn8uobSLb4MC9z77cXv+BCxSQGsswhgaVNYh/3GoBLrYYEYDpgGGFRL" +
+            "EJtrmf8pYbd3s+KKatCS5xEaEoILRYWQZMt5kENV2CyoaSznfg+zmRNeNpVpFBLWMl" +
+            "aVoT19fBzj2IZZx209ztGb+MLCRkHwy2b0cTDc1DfBm/RfzcJsAm8ym9sAPTmlbi6UlWB/dJr9s48kwM";
 
 
 }

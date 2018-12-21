@@ -298,14 +298,13 @@ public class GoldFind extends DogeCVDetector implements Constants {
 
 
     public void alignGold(){
-        PIDController getTheGold = new PIDController(.00215,0.00001,0,1);
+        PIDController getTheGold = new PIDController(.0025,0,0,1);
         long startTime = System.nanoTime();
         long beginTime = startTime;
         long stopState = 0;
         while(opModeIsActive() && (stopState <= 1000)){
             double power = getTheGold.power(TARGET_GOLD_X_POS,getXPosition());
             telemetry.addLine("PIDAlign");
-            telemetry.addData("Stopstate: ", stopState);
             telemetry.addData("Aligned:",getAligned());
             telemetry.addData("Found:",isFound());
             telemetry.addData("Pos:",getXPosition());
@@ -320,13 +319,13 @@ public class GoldFind extends DogeCVDetector implements Constants {
             hardware.frontRight.setPower(-power);
             hardware.backRight.setPower(-power);
 
-            if (Math.abs(TARGET_GOLD_X_POS-getXPosition()) <= 50) {
+            if (Math.abs(TARGET_GOLD_X_POS-getXPosition()) <= 25) {
                 stopState = (System.nanoTime() - startTime) / 1000000;
             }
             else {
                 startTime = System.nanoTime();
             }
-            if(System.nanoTime()/1000000-beginTime/1000000>5000){
+            if(System.nanoTime()/1000000-beginTime/1000000>10000){
                 break;
             }
         }

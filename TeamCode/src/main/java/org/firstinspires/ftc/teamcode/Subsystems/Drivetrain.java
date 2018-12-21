@@ -117,7 +117,7 @@ public class Drivetrain implements Constants {
 
     public void rotateToAbsoluteAngle(double desire){
         double degrees = desire;
-        PIDController controlRotate = new PIDController(dtRotateKP,dtRotateKI,dtRotateKD,dtRotateMaxI, MIN_ROTATE_POWER); //increase Ki .00005
+        PIDController controlRotate = new PIDController(dtRotateKP,dtRotateKI,dtRotateKD,dtRotateMaxI, 0); //increase Ki .00005
         long startTime = System.nanoTime();
         long beginTime = startTime;
         long stopState = 0;

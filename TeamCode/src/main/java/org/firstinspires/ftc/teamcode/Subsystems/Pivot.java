@@ -37,10 +37,10 @@ public class Pivot implements Constants {
         kd = 0.0;
         rotatorPower = (0.0001 * -liftPosition) + basePower;
         downPower = (0.001 * Math.abs(getPosition()) + baseDownPower);
-        if (controller.right_bumper){
+        if (controller.left_bumper){
             setPower(rotatorPower);
         }
-        else if (controller.left_bumper) {
+        else if (controller.right_bumper) {
             setPower(-downPower);
         } else {
             setPower(0);
