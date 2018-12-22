@@ -297,6 +297,7 @@ public class GoldFind extends DogeCVDetector implements Constants {
 
 
 
+
     public void alignGold(){
         PIDController getTheGold = new PIDController(.0025,0,0,1);
         long startTime = System.nanoTime();
